@@ -1,5 +1,1 @@
-- 👋 Hi, I’m @parth5805
-- 👀 I’m interested in web development | blockchain development |solidity | web3.js | Dapps
-- 🌱 I’m currently learning blockchain
-- 💞️ I’m looking to collaborate on blockchain and Dapps 
-- 📫 How to reach me www.iamparth.com | parthpatel17591759@gmail.com
+ Hi, I’m iamparth.eth 

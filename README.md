@@ -35,15 +35,29 @@ PropToken consists of three interconnected smart contracts that work together to
 
 ## 🔄 Contract Interaction Flow
 
-```mermaid
-graph TD
-    A[Property Owner] -->|1. tokenizeProperty| B[TokenizationManager]
-    B -->|2. mint NFT| C[PropertyDeed]
-    B -->|3. deploy new contract| D[PropertyFractions]
-    B -->|4. lock NFT in manager| B
-    A -->|5. startDistribution| B
-    E[Investors] -->|6. buyFractions| B
-    B -->|7. transfer fractions| D
+```
+                    Property Owner
+                         |
+                         | 1. tokenizeProperty()
+                         ▼
+              ┌─────────────────────────┐
+              │   TokenizationManager   │◄─── 5. startDistribution()
+              │    (Main Orchestrator)  │
+              └─────────────────────────┘
+                    |              |
+         2. mint NFT|              |3. deploy new contract
+                    ▼              ▼
+         ┌─────────────────┐  ┌─────────────────┐
+         │   PropertyDeed  │  │PropertyFractions│
+         │   (ERC-721 NFT) │  │  (ERC-20 Token) │
+         └─────────────────┘  └─────────────────┘
+                    ▲              ▲
+         4. lock NFT|              |7. transfer fractions
+                    |              |
+              ┌─────────────────────────┐
+              │   TokenizationManager   │◄─── 6. buyFractions() (Investors)
+              │                         │
+              └─────────────────────────┘
 ```
 
 ### Step-by-Step Process:
